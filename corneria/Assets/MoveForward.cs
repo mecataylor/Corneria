@@ -9,5 +9,14 @@ public class MoveForward : MonoBehaviour
 	void Update ()
 	{
 		transform.position += transform.forward*speed*Time.deltaTime;
+		
+		if(Input.GetButton("Fire3"))
+		{
+			speed = 40f;
+		}
+		if(Input.GetButtonUp("Fire3"))
+		{
+			speed = 10f;
+		}
 	}
 }

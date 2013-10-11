@@ -13,17 +13,18 @@ public class ShootLaser : MonoBehaviour
 	{
 		if(Input.GetButtonDown("Fire1"))
 		{
-			float timer = 0;
 			Vector3 shootVector = transform.position + new Vector3(1f, 0f, 1f);
+			
 			Rigidbody newLaser = Instantiate(bullet, shootVector, transform.rotation) as Rigidbody;
 			newLaser.AddForce(transform.forward*velocity,ForceMode.VelocityChange);
+		}
+		
+		if(Input.GetButtonUp("Fire1"))
+		{
+			Vector3 shootVector = transform.position + new Vector3(1f, 0f, 1f);
 			
-			timer += 1.0f * Time.deltaTime;
-			
-			if (timer > 2.25f)
-			{
-				GameObject.Destroy(newLaser);
-			}
+			Rigidbody newLaser = Instantiate(bullet, shootVector, transform.rotation) as Rigidbody;
+			newLaser.AddForce(transform.forward*velocity,ForceMode.VelocityChange);
 		}
 		
 		if(Input.GetButtonDown("Fire2"))
@@ -34,7 +35,8 @@ public class ShootLaser : MonoBehaviour
 			newMissile.AddForce(a.transform.forward*velocity/2,ForceMode.VelocityChange);
 		}
 		
-		if(Input.GetButtonDown("Fire3"))
+		/*		CAMERA SWITCH FOR TESTING PURPOSES
+		if(Input.GetButtonDown("Jump"))
 		{
 			activeCamera++;
 			if (activeCamera > 3) activeCamera = 1;
@@ -57,5 +59,6 @@ public class ShootLaser : MonoBehaviour
 				c.enabled = true;
 			}
 		}
+		*/
 	}
 }
