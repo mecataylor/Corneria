@@ -1,10 +1,12 @@
 ﻿#pragma strict
 
+public var duration : float = 3f;
+
 private var target : GameObject = null;
 private var turnSpeed : float = 1000;
 
 function Start(){
-	Destroy (gameObject, 1.5f);
+	Destroy (gameObject, duration);
 }
 
 function Update () {

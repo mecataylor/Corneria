@@ -8,13 +8,20 @@ public class ShipControl : MonoBehaviour {
 	public float rotateSpeed = 50f;
 	public Camera mainCamera;
 	
+	private GameObject shield;
+	
 	// Use this for initialization
 	void Start () {
-	
+		shield = transform.Find("shield").gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//check for shield up
+		if(Input.GetButtonDown("Jump")){
+			shield.SetActive(true);	
+		}
+		
 		float horizontal = Input.GetAxis("Horizontal");
 		float vertical = Input.GetAxis("Vertical");
 		
