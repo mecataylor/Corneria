@@ -11,7 +11,7 @@ private var attacking : boolean = false;
 private var player : GameObject = null;
 
 function OnCollisionEnter(col : Collision){
-	if(col.gameObject.layer == 9){
+	if(col.gameObject.layer == 10){
 		gameObject.SendMessage("damage", 1);
 		Destroy (col.gameObject);
 	}
