@@ -11,10 +11,9 @@ private var attacking : boolean = false;
 private var player : GameObject = null;
 
 function OnCollisionEnter(col : Collision){
-	if(col.gameObject.name == "Laser(Clone)"){
-		Destroy (gameObject, 1.5f);
+	if(col.gameObject.layer == 9){
+		gameObject.SendMessage("damage", 1);
 		Destroy (col.gameObject);
-		attacking = false;
 	}
 }
 
@@ -39,8 +38,23 @@ function fire(){
 	while(attacking){
 		var projectileInstance : Rigidbody = Instantiate(projectile, middle.position, transform.rotation);
 		if(player){
-			projectileInstance.SendMessage("fire", player);
+			projectileInstance.SendMessage("setTarget", player);
 		}
 		yield WaitForSeconds(shootFrequency);
 	}
+}
+
+//message from Health class
+function healed(){
+	
+}
+
+//message from Health class
+function dead(){
+	Destroy (gameObject);
+}
+
+//message from Health class
+function damaged(){
+
 }

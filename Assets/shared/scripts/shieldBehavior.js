@@ -3,7 +3,10 @@
 public var duration : float = 0.5f;
 
 function OnCollisionEnter(col : Collision){
-	Destroy(col.gameObject);
+	if(col.gameObject.layer == 12){
+		Destroy(col.gameObject);
+		//Add an explosion at the site of the collision
+	}
 }
 
 function OnEnable(){

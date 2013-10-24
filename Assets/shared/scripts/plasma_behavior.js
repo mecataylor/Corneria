@@ -16,6 +16,6 @@ function Update () {
 	}
 }
 
-function fire(toTarget : GameObject){
+function setTarget(toTarget : GameObject){
 	target = toTarget;
 }
